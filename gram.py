@@ -27,7 +27,7 @@ args = parser.parse_args()
 if args.dataset in ['IMDBBINARY', 'COLLAB', 'IMDBMULTI', 'COLLAB']:
     # social network
     degree_as_tag = True
-elif args.dataset in ['MUTAG', 'PROTEINS', 'PTC', 'NCI1']:
+else:
     # bioinformatics
     degree_as_tag = False
     
@@ -60,7 +60,7 @@ def calc(T):
 
 calc_list = [(i, j) for i in range(len(graphs)) for j in range(i, len(graphs))]
 
-pool = Pool(80)
+pool = Pool(15)
 results = pool.map(calc, calc_list)
 
 gram = np.zeros((len(graphs), len(graphs)))

@@ -40,7 +40,7 @@ def search(dataset, data_dir):
         'C':  hp.uniform('C', 0, 4.0),
         'kernel': 'precomputed',
         'cache_size': 16000,
-        'cv': StratifiedKFold(n_splits=10, shuffle=True),
+        'cv': StratifiedKFold(n_splits=3, shuffle=True),
         'max_iter':5e5
     }
 
