@@ -29,6 +29,11 @@ def f(params):
 def search(dataset, data_dir):
     gram = np.load(join(data_dir, 'gram.npy'))
     gram /= gram.min()
+    # normalize the matrix
+    gram_diag = np.sqrt(np.diag(gram))
+    gram /= gram_diag[:, None]
+    gram /= gram_diag[None, :]
+
     labels = np.load(join(data_dir, 'labels.npy'))
 
     space4svc = {
