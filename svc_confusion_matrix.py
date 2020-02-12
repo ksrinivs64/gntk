@@ -21,4 +21,4 @@ def search(data_dir):
 parser = argparse.ArgumentParser(description='hyper-parameter search')
 parser.add_argument('--data_dir', type=str, required=True, help='data_dir')
 args = parser.parse_args()
-search(args.dataset, args.data_dir)
+search(args.data_dir)
